@@ -5,7 +5,9 @@ Game Design Document
 Choose-Your-Own-Adventure (Graphical)
 
 OVERVIEW
-The premise is as follows: you are a bright eyed, hopeful adventurer looking for places to be and things to do. A weathered old wizard sends you on a quest to find an ancient relic, but he doesn't give you very many details to go on; all you have is a place to start. You go where he marked the map and are met with a fork in the road. What you choose will determine the success of your adventure.
+The premise is as follows: you are a bright eyed, hopeful adventurer looking for places to be and things to do. A weathered old wizard
+sends you on a quest to find an ancient relic, but he doesn't give you very many details to go on; all you have is a place to start.
+You go where he marked the map and are met with a fork in the road. What you choose will determine the success of your adventure.
 
 STATE TRANSITION DIAGRAM
 Please refer to State Transition Diagram.png.
