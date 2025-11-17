@@ -51,7 +51,7 @@ Please refer to Game Scene Diagram.png.
 Primary class. Subclassed from simpleGE.Scene.
 Visual attributes:
     - player - an instance of the Player class
-    - lblQuestion - an instance of the Question class
+    - lblQuestion - an instance of the LblQuestion class
     - choiceA - an instance of the ChoiceA class
     - choiceB - an instance of the ChoiceB class
     - lblResult - an instance of the LblResult class
@@ -85,8 +85,8 @@ Player
     process:
         if left key is pressed, subtract moveSpeed from x
         if right key is pressed, add moveSpeed to x
-        if up key is pressed,
-        if down key is pressed,
+        if up key is pressed, subtract moveSpeed from y
+        if down key is pressed, add moveSpeed to y
 
 MILESTONE PLAN (Tentative)
 1. Game scene with background image and music
