@@ -31,55 +31,10 @@ currentNode = pathGame[currentKey]
 class Game(simpleGE.Scene):
     def __init__(self):
         super().__init__()
+        pygame.init()
+        self.display = pygame.display.set_mode((1280, 720), pygame.HWSURFACE | pygame.DOUBLEBUF)
+        self.setCaption("Adventure Game")
 
-        self.output = simpleGE.MultiLabel()
-        self.output.center = (320, 250)
-        self.output.size = (800, 300)
-        self.output.textLines = [
-                description,
-                menuA,
-                menuB]
-        self.output.font.size = 12
-        
-        self.lblOut = simpleGE.Label()
-        self.lblOut.center = (320, 100)
-        self.lblOut.size = (300, 30)
-        self.lblOut.text = f"What will you do? 1/2"
-
-        self.txtName = simpleGE.TxtInput()
-        self.txtName.center = (320, 200)
-        self.txtName.text = ""
-
-        self.btnClickMe = simpleGE.Button()
-        self.btnClickMe.center = (320, 300)
-        self.btnClickMe.text = "Click me"
-
-        self.sprites = [self.output,
-                        self.lblOut, 
-                        self.txtName,
-                        self.btnClickMe]
-        
-    def processEvent(self, event):
-        self.txtName.readKeys(event)
-
-    def process(self):
-        if self.btnClickMe.clicked:
-            keepGoing = True
-            while keepGoing:
-                if currentKey == "quit":
-                    keepGoing = False
-                else:
-                    choice = self.txtName.text
-                    if choice == 1:
-                        nextKey = choiceA
-                    if choice == 2:
-                        nextKey = choiceB
-                    else:
-                        nextKey == currentKey
-                    return nextKey
-
-        if currentKey == "start":
-            self.setImage("fork.png")
         if currentKey == "left":
             self.setImage("rock.png")
         if currentKey == "right":
@@ -109,14 +64,58 @@ class Game(simpleGE.Scene):
         if currentKey == "go":
             self.setImage("stand.png")
         if currentKey == "farmer":
-            self.setImage("stand")
+            self.setImage("stand.png")
         if currentKey == "goBleu":
             self.setImage("elmunsterstower.png")
     
+        self.output = simpleGE.MultiLabel()
+        self.output.center = (640, 250)
+        self.output.size = (800, 300)
+        self.output.bgColor = "white"
+        self.output.textLines = [
+                description,
+                menuA,
+                menuB]
+        
+        self.lblOut = simpleGE.Label()
+        self.lblOut.center = (640, 400)
+        self.lblOut.size = (300, 30)
+        self.lblOut.text = f"What will you do? 1/2"
+
+        self.txtName = simpleGE.TxtInput()
+        self.txtName.center = (640, 550)
+        self.txtName.text = ""
+
+        self.btnClickMe = simpleGE.Button()
+        self.btnClickMe.center = (640, 600)
+        self.btnClickMe.text = "Click me"
+
+        if self.btnClickMe.clicked:
+            keepGoing = True
+            while keepGoing:
+                if currentKey == "quit":
+                    keepGoing = False
+                else:
+                    choice = self.txtName.text
+                if choice == 1:
+                    nextKey = choiceA
+                if choice == 2:
+                    nextKey = choiceB
+                else:
+                    nextKey = currentKey
+                return nextKey
+            
+        self.sprites = [self.output,
+                        self.lblOut, 
+                        self.txtName,
+                        self.btnClickMe]
+                      
+    def processEvent(self, event):
+        self.txtName.readKeys(event)
+              
 def main():
     game = Game()
     game.start()
-    
-  
+
 if __name__ == "__main__":
     main()
